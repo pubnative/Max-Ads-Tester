@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url "https://jitpack.io" }
     }
 }
-rootProject.name = "pubnative-max-adss-tester-app-android"
+rootProject.name = "pubnative-max-ads-tester-app-android"
 include ':app'
