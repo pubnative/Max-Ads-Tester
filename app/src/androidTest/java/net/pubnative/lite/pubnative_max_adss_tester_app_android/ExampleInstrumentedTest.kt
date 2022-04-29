@@ -1,4 +1,4 @@
-package net.pubnative.lite.maxadstester
+package net.pubnative.lite.pubnative_max_adss_tester_app_android
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,9 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("net.pubnative.lite.maxadstester", appContext.packageName)
+        assertEquals(
+            "net.pubnative.lite.pubnative_max_adss_tester_app_android",
+            appContext.packageName
+        )
     }
 }
