@@ -1,4 +1,4 @@
-package net.pubnative.lite.pubnative_max_adss_tester_app_android.ui.theme
+package net.pubnative.lite.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun PubnativemaxadsstesterappandroidTheme(
+fun MaxAdsMainTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
