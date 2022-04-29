@@ -1,8 +1,9 @@
 package net.pubnative.lite.repository
 
 import net.pubnative.lite.domain.Repository
+import javax.inject.Inject
 
-class RepositoryImp : Repository {
+class RepositoryImp @Inject constructor() : Repository {
 
     override fun fetchBannerAd() {
 
