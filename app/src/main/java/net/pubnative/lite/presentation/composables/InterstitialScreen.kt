@@ -12,11 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import net.pubnative.lite.R
 
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun InterstitialScreen() {
     Column(
@@ -28,7 +26,7 @@ fun InterstitialScreen() {
         Text(
             text = "Interstitial Screen",
             fontWeight = FontWeight.Bold,
-            color = Color.Black,
+            color = Color.White,
             modifier = Modifier.align(Alignment.CenterHorizontally),
             textAlign = TextAlign.Center,
             fontSize = 20.sp
