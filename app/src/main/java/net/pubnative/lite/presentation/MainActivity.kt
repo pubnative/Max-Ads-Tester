@@ -1,6 +1,7 @@
 package net.pubnative.lite.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,29 +15,32 @@ import net.pubnative.lite.presentation.composables.MainScreenView
 import net.pubnative.lite.ui.theme.MaxAdsMainTheme
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), MainScreenInteractor {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             MaxAdsMainTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreenView()
+                    MainScreenView(this@MainActivity)
                 }
             }
         }
     }
-}
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun DefaultPreview() {
-    MaxAdsMainTheme {
-        MainScreenView()
+    override fun onShowBannerClicked() {
+        Log.d("onShowBannerClicked","clicked")
+    }
+
+    override fun onShowInterstitialClicked() {
+        Log.d("onShowInterstitialClicked","clicked")
+    }
+
+    override fun onShowRewardedClicked() {
+        Log.d("onShowRewardedClicked","clicked")
     }
 }

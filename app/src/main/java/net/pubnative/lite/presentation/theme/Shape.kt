@@ -1,4 +1,4 @@
-package net.pubnative.lite.ui.theme
+package net.pubnative.lite.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

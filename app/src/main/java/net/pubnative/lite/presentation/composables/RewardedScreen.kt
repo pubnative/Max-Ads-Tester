@@ -1,36 +1,69 @@
 package net.pubnative.lite.presentation.composables
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.unit.dp
 import net.pubnative.lite.R
+import net.pubnative.lite.presentation.MainScreenInteractor
 
 @Composable
-fun RewardedScreen() {
+fun RewardedScreen(listener: MainScreenInteractor?) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.teal_700))
-            .wrapContentSize(Alignment.Center)
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(colorResource(id = R.color.white))
     ) {
-        Text(
-            text = "Rewarded Screen",
-            fontWeight = FontWeight.Bold,
-            color = Color.White,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp
-        )
+        Button(modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                start = 10.dp, top = 20.dp, end = 10.dp, bottom = 0.dp
+            ), onClick = {
+            onRewardedAdClicked(listener)
+        }) {
+            Text(
+                "show Rewarded Ad",
+                maxLines = 1,
+                modifier = Modifier.padding(5.dp, 5.dp, 5.dp, 5.dp)
+            )
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+                .padding(
+                    start = 10.dp, top = 10.dp, end = 10.dp, bottom = 0.dp
+                )
+        ) {
+
+        }
     }
+}
+
+//@Preview(showBackground = true, showSystemUi = true)
+//@Composable
+//fun RewardedScreen() {
+//    RewardedScreen(object : MainScreenInteractor {
+//        override fun onShowBannerClicked() {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onShowInterstitialClicked() {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onShowRewardedClicked() {
+//            TODO("Not yet implemented")
+//        }
+//    })
+//}
+
+fun onRewardedAdClicked(listener: MainScreenInteractor?) {
+    listener?.onShowRewardedClicked()
 }

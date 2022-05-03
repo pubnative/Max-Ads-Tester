@@ -12,6 +12,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import net.pubnative.lite.R
+import net.pubnative.lite.presentation.MainScreenInteractor
 import net.pubnative.lite.utils.BottomNavItem
 
 @Composable
@@ -63,12 +64,14 @@ fun MainBottomNavigation(navController: NavController) {
 
 
 @Composable
-@Preview
-fun MainScreenView() {
+fun MainScreenView(mainScreenInteractor: MainScreenInteractor) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { MainBottomNavigation(navController = navController) }
     ) {
-        NavigationGraph(navController = navController)
+        NavigationGraph(
+            navController = navController,
+            mainScreenInteractor = mainScreenInteractor
+        )
     }
 }
