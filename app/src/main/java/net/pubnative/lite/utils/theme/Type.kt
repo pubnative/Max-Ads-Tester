@@ -1,4 +1,4 @@
-package net.pubnative.lite.presentation.theme
+package net.pubnative.lite.utils.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

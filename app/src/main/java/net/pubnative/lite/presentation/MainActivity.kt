@@ -13,7 +13,7 @@ import net.pubnative.lite.presentation.composables.MainScreenView
 import net.pubnative.lite.ui.theme.MaxAdsMainTheme
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity(), MainScreenInteractor {
+class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -26,21 +26,9 @@ class MainActivity : ComponentActivity(), MainScreenInteractor {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreenView(this@MainActivity)
+                    MainScreenView()
                 }
             }
         }
-    }
-
-    override fun onShowBannerClicked() {
-        viewModel.fetchBannerAd()
-    }
-
-    override fun onShowInterstitialClicked() {
-        viewModel.fetchInterstitialAd()
-    }
-
-    override fun onShowRewardedClicked() {
-        viewModel.fetchRewardedAd()
     }
 }

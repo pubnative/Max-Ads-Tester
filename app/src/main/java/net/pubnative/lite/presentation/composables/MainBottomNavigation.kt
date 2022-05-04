@@ -6,13 +6,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import net.pubnative.lite.R
-import net.pubnative.lite.presentation.MainScreenInteractor
 import net.pubnative.lite.utils.BottomNavItem
 
 @Composable
@@ -64,14 +62,13 @@ fun MainBottomNavigation(navController: NavController) {
 
 
 @Composable
-fun MainScreenView(mainScreenInteractor: MainScreenInteractor) {
+fun MainScreenView() {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { MainBottomNavigation(navController = navController) }
     ) {
         NavigationGraph(
-            navController = navController,
-            mainScreenInteractor = mainScreenInteractor
+            navController = navController
         )
     }
 }

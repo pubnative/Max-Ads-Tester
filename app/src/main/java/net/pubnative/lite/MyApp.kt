@@ -10,7 +10,6 @@ import dagger.hilt.android.HiltAndroidApp
 class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        // Initialize the AppLovin SDK
         AppLovinSdk.getInstance(this).mediationProvider = AppLovinMediationProvider.MAX
         AppLovinSdk.getInstance(this).initializeSdk {
             it?.let {

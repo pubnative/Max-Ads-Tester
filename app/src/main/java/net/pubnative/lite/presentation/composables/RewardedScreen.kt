@@ -10,10 +10,9 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.pubnative.lite.R
-import net.pubnative.lite.presentation.MainScreenInteractor
 
 @Composable
-fun RewardedScreen(listener: MainScreenInteractor?) {
+fun RewardedScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -25,14 +24,29 @@ fun RewardedScreen(listener: MainScreenInteractor?) {
             .padding(
                 start = 10.dp, top = 20.dp, end = 10.dp, bottom = 0.dp
             ), onClick = {
-            onRewardedAdClicked(listener)
+            onLoadRewardedAdClicked()
         }) {
             Text(
-                "show Rewarded Ad",
+                "Load Ad",
                 maxLines = 1,
                 modifier = Modifier.padding(5.dp, 5.dp, 5.dp, 5.dp)
             )
         }
+
+        Button(modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                start = 10.dp, top = 20.dp, end = 10.dp, bottom = 0.dp
+            ), onClick = {
+            onShowRewardedAdClicked()
+        }) {
+            Text(
+                "show Ad",
+                maxLines = 1,
+                modifier = Modifier.padding(5.dp, 5.dp, 5.dp, 5.dp)
+            )
+        }
+
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -46,24 +60,14 @@ fun RewardedScreen(listener: MainScreenInteractor?) {
     }
 }
 
-//@Preview(showBackground = true, showSystemUi = true)
-//@Composable
-//fun RewardedScreen() {
-//    RewardedScreen(object : MainScreenInteractor {
-//        override fun onShowBannerClicked() {
-//            TODO("Not yet implemented")
-//        }
-//
-//        override fun onShowInterstitialClicked() {
-//            TODO("Not yet implemented")
-//        }
-//
-//        override fun onShowRewardedClicked() {
-//            TODO("Not yet implemented")
-//        }
-//    })
-//}
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun RewardedScreenPreview() {
+    RewardedScreen()
+}
 
-fun onRewardedAdClicked(listener: MainScreenInteractor?) {
-    listener?.onShowRewardedClicked()
+fun onLoadRewardedAdClicked() {
+}
+
+fun onShowRewardedAdClicked() {
 }

@@ -9,16 +9,4 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val repository: Repository,
 ) : ViewModel() {
-
-    fun fetchBannerAd() {
-        repository.fetchBannerAd()
-    }
-
-    fun fetchInterstitialAd() {
-        repository.fetchInterstitialAd()
-    }
-
-    fun fetchRewardedAd() {
-        repository.fetchRewardedAd()
-    }
 }
