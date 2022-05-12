@@ -15,6 +15,7 @@ import net.pubnative.lite.utils.BottomNavItem
 
 @Composable
 fun MainBottomNavigation(navController: NavController) {
+
     val items = listOf(
         BottomNavItem.Banner,
         BottomNavItem.Interstitial,

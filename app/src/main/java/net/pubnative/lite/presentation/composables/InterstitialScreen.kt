@@ -46,16 +46,7 @@ fun InterstitialScreen() {
                 modifier = Modifier.padding(5.dp, 5.dp, 5.dp, 5.dp)
             )
         }
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(50.dp)
-                .padding(
-                    start = 10.dp, top = 10.dp, end = 10.dp, bottom = 0.dp
-                )
-        ) {
 
-        }
     }
 }
 
