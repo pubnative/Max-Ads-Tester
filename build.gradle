@@ -9,6 +9,7 @@ buildscript {
 
     repositories {
         maven { url 'https://artifacts.applovin.com/android' }
+        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }
     }
     dependencies {
         classpath "com.applovin.quality:AppLovinQualityServiceGradlePlugin:+"

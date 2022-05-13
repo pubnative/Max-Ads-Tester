@@ -4,6 +4,7 @@ pluginManagement {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }
     }
 }
 dependencyResolutionManagement {
@@ -12,6 +13,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven { url "https://verve.jfrog.io/artifactory/verve-gradle-release" }
     }
 }
 rootProject.name = "pubnative-max-ads-tester-app-android"
