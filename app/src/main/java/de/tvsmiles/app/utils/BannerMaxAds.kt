@@ -47,7 +47,6 @@ fun loadBannerAd(maxAdView: MaxAdView?) {
 
         override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
             Log.d(TAG, "onAdDisplayFailed: ")
-            maxAdView.loadAd()
         }
 
         override fun onAdExpanded(ad: MaxAd?) {
