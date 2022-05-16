@@ -12,10 +12,13 @@ import com.applovin.mediation.ads.MaxAdView
 private const val TAG = "loadBanner"
 
 fun loadBannerAd(maxAdView: MaxAdView?) {
+    maxAdView?.setExtraParameter("adaptive_banner", "true")
 
     maxAdView?.setListener(object : MaxAdViewAdListener {
         override fun onAdLoaded(ad: MaxAd?) {
             Log.d(TAG, "onAdLoaded")
+            maxAdView.visibility = View.VISIBLE
+            maxAdView.startAutoRefresh()
         }
 
         override fun onAdClicked(ad: MaxAd?) {
@@ -40,6 +43,7 @@ fun loadBannerAd(maxAdView: MaxAdView?) {
             Log.d(TAG, "onAdCollapsed")
         }
 
+        // These two below are not used with Banner - Only for fullscreen ads
         override fun onAdDisplayed(ad: MaxAd?) {
             Log.d(TAG, "onAdDisplayed")
         }
@@ -51,14 +55,4 @@ fun loadBannerAd(maxAdView: MaxAdView?) {
     })
 
     maxAdView?.loadAd()
-}
-
-fun showBannerAd(maxAdView: MaxAdView?, activity: Activity) {
-    if (maxAdView != null) {
-        maxAdView.visibility = View.VISIBLE
-        maxAdView.startAutoRefresh()
-    } else {
-        Log.d(TAG, "showBannerAd: The Ad is not ready yet")
-        Toast.makeText(activity, "Banner Ad is not ready yet", Toast.LENGTH_SHORT).show()
-    }
 }

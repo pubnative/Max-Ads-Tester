@@ -67,7 +67,6 @@ fun MainBottomNavigation(
 @Composable
 fun MainScreenView(
     onLoadBanner: (maxAdView: MaxAdView) -> Unit,
-    onShowBanner: (maxAdView: MaxAdView) -> Unit,
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
@@ -84,7 +83,6 @@ fun MainScreenView(
         NavigationGraph(
             navController = navController,
             onLoadBanner = onLoadBanner,
-            onShowBanner = onShowBanner,
             onLoadInterstitial = onLoadInterstitial,
             onShowInterstitial = onShowInterstitial,
             onLoadRewarded = onLoadRewarded,

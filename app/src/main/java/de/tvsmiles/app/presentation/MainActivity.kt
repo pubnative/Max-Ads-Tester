@@ -26,9 +26,6 @@ class MainActivity : ComponentActivity() {
                             loadBannerAd(it)
                         }
                     },
-                    onShowBanner = {
-                        showBannerAd(it,this@MainActivity)
-                    },
                     onLoadInterstitial = {
                         initialiseApplovinSDK {
                             createInterstitialAd(this@MainActivity)

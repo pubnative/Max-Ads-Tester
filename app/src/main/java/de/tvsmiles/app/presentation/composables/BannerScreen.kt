@@ -1,5 +1,6 @@
 package de.tvsmiles.app.presentation.composables
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -16,9 +17,7 @@ import de.tvsmiles.app.R
 
 @Composable
 fun BannerScreen(
-    modifier: Modifier = Modifier,
     onLoadBanner: (maxAdView: MaxAdView) -> Unit,
-    onShowBanner: (maxAdView: MaxAdView) -> Unit
 ) {
 
     val ctx = LocalContext.current
@@ -48,26 +47,12 @@ fun BannerScreen(
                 )
             }
 
-            Button(modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = 10.dp, top = 10.dp, end = 10.dp, bottom = 0.dp
-                ), onClick = {
-                onShowBanner.invoke(maxAdViewState.value)
-            }) {
-                Text(
-                    "show Ad",
-                    maxLines = 1,
-                    modifier = Modifier.padding(5.dp, 5.dp, 5.dp, 5.dp)
-                )
-            }
-
             Spacer(modifier = Modifier.size(30.dp))
 
             AndroidView(factory = {
                 maxAdViewState.value
             }, update = {
-                maxAdViewState.value = it
+//                maxAdViewState.value = it
             })
         }
     }
@@ -76,9 +61,7 @@ fun BannerScreen(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun BannerScreenPreview() {
-    BannerScreen(onShowBanner = {
-
-    }, onLoadBanner = {
-
+    BannerScreen(onLoadBanner = {
+        Log.d("onLoadBanner", "BannerScreenPreview: ")
     })
 }

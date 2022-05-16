@@ -11,7 +11,6 @@ import de.tvsmiles.app.presentation.widgets.BottomNavItem
 fun NavigationGraph(
     navController: NavHostController,
     onLoadBanner: (maxAdView: MaxAdView) -> Unit,
-    onShowBanner: (maxAdView: MaxAdView) -> Unit,
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
@@ -20,8 +19,7 @@ fun NavigationGraph(
     NavHost(navController, startDestination = BottomNavItem.Banner.screenRoute) {
         composable(BottomNavItem.Banner.screenRoute) {
             BannerScreen(
-                onLoadBanner = onLoadBanner,
-                onShowBanner = onShowBanner
+                onLoadBanner = onLoadBanner
             )
         }
         composable(BottomNavItem.Interstitial.screenRoute) {
