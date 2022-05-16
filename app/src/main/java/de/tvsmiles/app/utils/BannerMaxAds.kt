@@ -1,5 +1,6 @@
 package de.tvsmiles.app.utils
 
+import android.app.Activity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -62,11 +63,12 @@ fun loadBannerAd(maxAdView: MaxAdView?) {
     maxAdView?.loadAd()
 }
 
-fun showBannerAd(maxAdView: MaxAdView?) {
+fun showBannerAd(maxAdView: MaxAdView?, activity: Activity) {
     if (maxAdView != null) {
         maxAdView.visibility = View.VISIBLE
         maxAdView.startAutoRefresh()
     } else {
         Log.d(TAG, "showBannerAd: The Ad is not ready yet")
+        Toast.makeText(activity, "Banner Ad is not ready yet", Toast.LENGTH_SHORT).show()
     }
 }

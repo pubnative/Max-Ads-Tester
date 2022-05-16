@@ -3,6 +3,7 @@ package de.tvsmiles.app.utils
 import android.app.Activity
 import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxAdListener
 import com.applovin.mediation.MaxError
@@ -57,7 +58,12 @@ fun createInterstitialAd(activity: Activity) {
     interstitialAd?.loadAd()
 }
 
-fun showInterstitialAd() {
+fun showInterstitialAd(activity: Activity) {
+    if (interstitialAd?.isReady == false) {
+        Toast.makeText(activity, "Interstitial Ad is not ready yet", Toast.LENGTH_SHORT).show()
+        return
+    }
+
     interstitialAd?.let {
         if (it.isReady) {
             it.showAd()

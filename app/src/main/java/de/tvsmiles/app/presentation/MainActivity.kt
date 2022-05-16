@@ -22,34 +22,48 @@ class MainActivity : ComponentActivity() {
             MainActivityLayout {
                 MainScreenView(
                     onLoadBanner = {
-                        AppLovinSdk.getInstance(this@MainActivity).mediationProvider =
-                            AppLovinMediationProvider.MAX
-                        AppLovinSdk.getInstance(this@MainActivity)
-                            .initializeSdk { applovinConfiguration ->
-                                Log.d(
-                                    "Applovin SDK initialisation",
-                                    "onCreate: $applovinConfiguration"
-                                )
-                                loadBannerAd(it)
-                            }
+                        initialiseApplovinSDK {
+                            loadBannerAd(it)
+                        }
                     },
                     onShowBanner = {
-                        showBannerAd(it)
+                        showBannerAd(it,this@MainActivity)
                     },
                     onLoadInterstitial = {
-                        createInterstitialAd(this@MainActivity)
+                        initialiseApplovinSDK {
+                            createInterstitialAd(this@MainActivity)
+                        }
                     },
                     onShowInterstitial = {
-                        showInterstitialAd()
+                        showInterstitialAd(this@MainActivity)
                     },
                     onLoadRewarded = {
-                        createRewardedAd(this@MainActivity)
+                        initialiseApplovinSDK {
+                            createRewardedAd(this@MainActivity)
+                        }
                     },
                     onShowRewarded = {
-                        showRewardedAd()
+                        showRewardedAd(this@MainActivity)
                     }
                 )
             }
+        }
+    }
+
+    private fun initialiseApplovinSDK(content: () -> Unit) {
+        if (!AppLovinSdk.getInstance(applicationContext).isInitialized) {
+            AppLovinSdk.getInstance(this@MainActivity).mediationProvider =
+                AppLovinMediationProvider.MAX
+            AppLovinSdk.getInstance(this@MainActivity)
+                .initializeSdk { applovinConfiguration ->
+                    Log.d(
+                        "Applovin SDK initialisation",
+                        "onCreate: $applovinConfiguration"
+                    )
+                    content.invoke()
+                }
+        } else {
+            content.invoke()
         }
     }
 }

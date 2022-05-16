@@ -3,6 +3,7 @@ package de.tvsmiles.app.utils
 import android.app.Activity
 import android.os.Handler
 import android.util.Log
+import android.widget.Toast
 import com.applovin.mediation.MaxAd
 import com.applovin.mediation.MaxError
 import com.applovin.mediation.MaxReward
@@ -71,7 +72,12 @@ fun createRewardedAd(activity: Activity) {
     rewardedAd?.loadAd()
 }
 
-fun showRewardedAd() {
+fun showRewardedAd(activity: Activity) {
+    if (rewardedAd?.isReady == false) {
+        Toast.makeText(activity, "Rewarded Ad is not ready yet", Toast.LENGTH_SHORT).show()
+        return
+    }
+
     rewardedAd?.let {
         if (it.isReady) {
             it.showAd()
