@@ -6,7 +6,6 @@ import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -18,21 +17,19 @@ import de.tvsmiles.app.R
 @Composable
 fun BannerScreen(
     modifier: Modifier = Modifier,
-    onLoadBanner: () -> Unit,
-    onShowBanner: () -> Unit,
-    adView: MaxAdView?
+    onLoadBanner: (maxAdView: MaxAdView) -> Unit,
+    onShowBanner: (maxAdView: MaxAdView) -> Unit
 ) {
 
-    val context = LocalContext.current
+    val ctx = LocalContext.current
 
-    val maxAdViewState = remember(adView) {
-        mutableStateOf(MaxAdView(BuildConfig.BANNER_AD_UNIT_ID, context))
+    val maxAdViewState = remember {
+        mutableStateOf(MaxAdView(BuildConfig.BANNER_AD_UNIT_ID, ctx))
     }
 
     Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight()
             .background(colorResource(id = R.color.white))
     ) {
 
@@ -42,7 +39,7 @@ fun BannerScreen(
                 .padding(
                     start = 10.dp, top = 20.dp, end = 10.dp, bottom = 0.dp
                 ), onClick = {
-                onLoadBanner.invoke()
+                onLoadBanner.invoke(maxAdViewState.value)
             }) {
                 Text(
                     "Load Ad",
@@ -56,7 +53,7 @@ fun BannerScreen(
                 .padding(
                     start = 10.dp, top = 10.dp, end = 10.dp, bottom = 0.dp
                 ), onClick = {
-                onShowBanner.invoke()
+                onShowBanner.invoke(maxAdViewState.value)
             }) {
                 Text(
                     "show Ad",
@@ -67,18 +64,11 @@ fun BannerScreen(
 
             Spacer(modifier = Modifier.size(30.dp))
 
-            val isInEditMode = LocalInspectionMode.current
-
-            if (!isInEditMode) {
-                AndroidView(
-                    modifier = modifier
-                        .fillMaxWidth()
-                        .height(60.dp),
-                    factory = {
-                        maxAdViewState.value
-                    }
-                )
-            }
+            AndroidView(factory = {
+                maxAdViewState.value
+            }, update = {
+                maxAdViewState.value = it
+            })
         }
     }
 }
@@ -86,18 +76,9 @@ fun BannerScreen(
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun BannerScreenPreview() {
-
-    val context = LocalContext.current
-
-    val adView = MaxAdView(BuildConfig.BANNER_AD_UNIT_ID, context)
-
-    val maxAdViewState = remember(adView) {
-        mutableStateOf(MaxAdView(BuildConfig.BANNER_AD_UNIT_ID, context))
-    }
-
     BannerScreen(onShowBanner = {
 
     }, onLoadBanner = {
 
-    }, adView = maxAdViewState.value)
+    })
 }

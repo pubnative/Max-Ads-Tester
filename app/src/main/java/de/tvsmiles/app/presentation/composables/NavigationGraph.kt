@@ -5,14 +5,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.applovin.mediation.ads.MaxAdView
-import de.tvsmiles.app.utils.BottomNavItem
+import de.tvsmiles.app.presentation.widgets.BottomNavItem
 
 @Composable
 fun NavigationGraph(
     navController: NavHostController,
-    bannerAdView: MaxAdView?,
-    onLoadBanner: () -> Unit,
-    onShowBanner: () -> Unit,
+    onLoadBanner: (maxAdView: MaxAdView) -> Unit,
+    onShowBanner: (maxAdView: MaxAdView) -> Unit,
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
@@ -22,8 +21,7 @@ fun NavigationGraph(
         composable(BottomNavItem.Banner.screenRoute) {
             BannerScreen(
                 onLoadBanner = onLoadBanner,
-                onShowBanner = onShowBanner,
-                adView = bannerAdView
+                onShowBanner = onShowBanner
             )
         }
         composable(BottomNavItem.Interstitial.screenRoute) {

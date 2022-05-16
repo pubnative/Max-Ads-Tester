@@ -1,4 +1,4 @@
-package de.tvsmiles.app.utils
+package de.tvsmiles.app.presentation.widgets
 
 import de.tvsmiles.app.R
 

@@ -3,6 +3,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'applovin-quality-service'
+}
+
+applovin {
+    apiKey "DLFowD1XQnNMxQ5vN0qgKTgBObZRdDbsiz5f67ziKuCKyh3kAOzQyVMTBPCE8g3GHVzK4EUHyQHPA4f4zn9P8u"
 }
 
 android {
@@ -105,10 +110,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 
     //AppLovin Max SDK
-    implementation 'com.applovin:applovin-sdk:+'
+    implementation 'com.applovin:applovin-sdk:11.3.3'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'net.pubnative:hybid.adapters.applovin:2.13.0'
+    implementation 'net.pubnative:hybid.adapters.applovin:2.12.0'
 
     //test dependencies
     testImplementation "androidx.test:core:1.4.0"

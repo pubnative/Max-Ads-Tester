@@ -12,7 +12,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.applovin.mediation.ads.MaxAdView
 import de.tvsmiles.app.R
-import de.tvsmiles.app.utils.BottomNavItem
+import de.tvsmiles.app.presentation.widgets.BottomNavItem
 
 @Composable
 fun MainBottomNavigation(
@@ -66,9 +66,8 @@ fun MainBottomNavigation(
 
 @Composable
 fun MainScreenView(
-    onLoadBanner: () -> Unit,
-    onShowBanner: () -> Unit,
-    bannerAdView: MaxAdView?,
+    onLoadBanner: (maxAdView: MaxAdView) -> Unit,
+    onShowBanner: (maxAdView: MaxAdView) -> Unit,
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
@@ -84,7 +83,6 @@ fun MainScreenView(
     ) {
         NavigationGraph(
             navController = navController,
-            bannerAdView = bannerAdView,
             onLoadBanner = onLoadBanner,
             onShowBanner = onShowBanner,
             onLoadInterstitial = onLoadInterstitial,
