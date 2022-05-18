@@ -22,7 +22,8 @@ fun MainBottomNavigation(
     val items = listOf(
         BottomNavItem.Banner,
         BottomNavItem.Interstitial,
-        BottomNavItem.Rewarded
+        BottomNavItem.Rewarded,
+        BottomNavItem.SETTINGS,
     )
 
     BottomNavigation(
@@ -70,7 +71,8 @@ fun MainScreenView(
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
-    onShowRewarded: () -> Unit
+    onShowRewarded: () -> Unit,
+    onShowSettings: () -> Unit,
 ) {
     val navController = rememberNavController()
     Scaffold(
@@ -86,7 +88,8 @@ fun MainScreenView(
             onLoadInterstitial = onLoadInterstitial,
             onShowInterstitial = onShowInterstitial,
             onLoadRewarded = onLoadRewarded,
-            onShowRewarded = onShowRewarded
+            onShowRewarded = onShowRewarded,
+            onShowSettings = onShowSettings
         )
     }
 }

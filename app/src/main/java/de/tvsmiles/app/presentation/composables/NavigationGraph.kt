@@ -14,7 +14,8 @@ fun NavigationGraph(
     onLoadInterstitial: () -> Unit,
     onShowInterstitial: () -> Unit,
     onLoadRewarded: () -> Unit,
-    onShowRewarded: () -> Unit
+    onShowRewarded: () -> Unit,
+    onShowSettings: () -> Unit
 ) {
     NavHost(navController, startDestination = BottomNavItem.Banner.screenRoute) {
         composable(BottomNavItem.Banner.screenRoute) {
@@ -27,6 +28,9 @@ fun NavigationGraph(
         }
         composable(BottomNavItem.Rewarded.screenRoute) {
             RewardedScreen(onLoadRewarded, onShowRewarded)
+        }
+        composable(BottomNavItem.SETTINGS.screenRoute) {
+            SettingsScreen(onShowSettings)
         }
     }
 }

@@ -41,6 +41,10 @@ class MainActivity : ComponentActivity() {
                     },
                     onShowRewarded = {
                         showRewardedAd(this@MainActivity)
+                    }, onShowSettings = {
+                        initialiseApplovinSDK {
+                            AppLovinSdk.getInstance(applicationContext).showMediationDebugger()
+                        }
                     }
                 )
             }
