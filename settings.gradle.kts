@@ -2,11 +2,19 @@ pluginManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://artifacts.applovin.com/android" )
         maven("https://verve.jfrog.io/artifactory/verve-gradle-release" )
         maven("https://verve.jfrog.io/artifactory/verve-gradle-dev" )
         maven("https://jitpack.io" )
         gradlePluginPortal()
+    }
+}
+
+buildscript {
+    repositories {
+        maven { url = uri("https://artifacts.applovin.com/android") }
+    }
+    dependencies {
+        classpath ("com.applovin.quality:AppLovinQualityServiceGradlePlugin:5.0.7")
     }
 }
 
@@ -15,10 +23,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://artifacts.applovin.com/android") }
-        maven { url = uri("https://verve.jfrog.io/artifactory/verve-gradle-release") }
-        maven { url = uri("https://verve.jfrog.io/artifactory/verve-gradle-dev") }
-        maven { url = uri("https://jitpack.io") }
+        maven("https://verve.jfrog.io/artifactory/verve-gradle-release" )
+        maven("https://verve.jfrog.io/artifactory/verve-gradle-dev" )
+        maven("https://jitpack.io" )
     }
 }
 rootProject.name = "pubnative-max-ads-tester-android"

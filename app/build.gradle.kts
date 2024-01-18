@@ -5,11 +5,16 @@ plugins {
     alias(libs.plugins.daggerHilt)
     alias(libs.plugins.navigationsafeargskotlin)
     alias(libs.plugins.ksp)
+    id("applovin-quality-service")
 }
 
 //applovin {
 //    apiKey "DLFowD1XQnNMxQ5vN0qgKTgBObZRdDbsiz5f67ziKuCKyh3kAOzQyVMTBPCE8g3GHVzK4EUHyQHPA4f4zn9P8u"
 //}
+
+kotlin {
+    jvmToolchain(17)
+}
 
 android {
     namespace = "de.tvsmiles.app"
@@ -45,11 +50,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true

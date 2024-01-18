@@ -6,5 +6,6 @@ plugins {
     alias(libs.plugins.daggerHilt) apply false
     alias(libs.plugins.navigationsafeargskotlin) apply false
     alias(libs.plugins.ksp) apply false
+//    id("applovin-quality-service") apply false
 }
 true // Needed to make the Suppress annotation work for the plugins block
