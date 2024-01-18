@@ -1,5 +1,6 @@
 package de.tvsmiles.app.presentation.composables
 
+import android.annotation.SuppressLint
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -65,6 +66,7 @@ fun MainBottomNavigation(
     }
 }
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreenView(
     onLoadBanner: (maxAdView: MaxAdView) -> Unit,

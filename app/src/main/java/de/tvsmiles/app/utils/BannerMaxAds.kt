@@ -11,48 +11,48 @@ import com.applovin.mediation.ads.MaxAdView
 
 private const val TAG = "loadBanner"
 
-fun loadBannerAd(maxAdView: MaxAdView?) {
-    maxAdView?.setExtraParameter("adaptive_banner", "true")
+fun loadBannerAd(maxAdView: MaxAdView) {
+    maxAdView.setExtraParameter("adaptive_banner", "true")
 
-    maxAdView?.setListener(object : MaxAdViewAdListener {
-        override fun onAdLoaded(ad: MaxAd?) {
+    maxAdView.setListener(object : MaxAdViewAdListener {
+        override fun onAdLoaded(ad: MaxAd) {
             Log.d(TAG, "onAdLoaded")
             maxAdView.visibility = View.VISIBLE
             maxAdView.startAutoRefresh()
         }
 
-        override fun onAdClicked(ad: MaxAd?) {
+        override fun onAdClicked(ad: MaxAd) {
             Log.d(TAG, "onAdClicked")
         }
 
-        override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+        override fun onAdLoadFailed(adUnitId: String, error: MaxError) {
             Log.d(TAG, "onAdLoadFailed")
             maxAdView.loadAd()
         }
 
-        override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+        override fun onAdDisplayFailed(ad: MaxAd, error: MaxError) {
             Log.d(TAG, "onAdDisplayFailed")
             maxAdView.loadAd()
         }
 
-        override fun onAdExpanded(ad: MaxAd?) {
+        override fun onAdExpanded(ad: MaxAd) {
             Log.d(TAG, "onAdExpanded")
         }
 
-        override fun onAdCollapsed(ad: MaxAd?) {
+        override fun onAdCollapsed(ad: MaxAd) {
             Log.d(TAG, "onAdCollapsed")
         }
 
         // These two below are not used with Banner - Only for fullscreen ads
-        override fun onAdDisplayed(ad: MaxAd?) {
+        override fun onAdDisplayed(ad: MaxAd) {
             Log.d(TAG, "onAdDisplayed")
         }
 
-        override fun onAdHidden(ad: MaxAd?) {
+        override fun onAdHidden(ad: MaxAd) {
             Log.d(TAG, "onAdHidden")
         }
 
     })
 
-    maxAdView?.loadAd()
+    maxAdView.loadAd()
 }

@@ -1,4 +1,4 @@
-package de.tvsmiles.app.pubnative_max_adss_tester_app_android
+package de.tvsmiles.app
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,9 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals(
-            "de.tvsmiles.app.pubnative_max_adss_tester_app_android",
-            appContext.packageName
-        )
+        assertEquals("de.tvsmiles.app", appContext.packageName)
     }
 }

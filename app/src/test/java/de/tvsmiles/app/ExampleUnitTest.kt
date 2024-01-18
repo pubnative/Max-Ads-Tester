@@ -1,4 +1,4 @@
-package de.tvsmiles.app.pubnative_max_adss_tester_app_android
+package de.tvsmiles.app
 
 import org.junit.Test
 
