@@ -1,10 +1,10 @@
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
-    alias(libs.plugins.daggerHilt)
-    alias(libs.plugins.navigationsafeargskotlin)
-    alias(libs.plugins.ksp)
+    id ("com.android.application")
+    id ("org.jetbrains.kotlin.android")
+    id ("androidx.navigation.safeargs")
+    id ("com.google.dagger.hilt.android")
+    id ("com.google.devtools.ksp")
     id("applovin-quality-service")
 }
 
@@ -62,11 +62,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
     }
 }
 
