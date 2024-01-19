@@ -20,7 +20,6 @@ class MyApp : Application() {
     }
 
     private fun initSettings() {
-
         HyBid.initialize("dde3c298b47648459f8ada4a982fa92d", this) {
             if (it) {
                 WebView.setWebContentsDebuggingEnabled(true)

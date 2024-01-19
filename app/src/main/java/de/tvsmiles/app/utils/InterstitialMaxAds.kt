@@ -20,25 +20,25 @@ private const val TAG = "loadInterstitial"
 fun createInterstitialAd(activity: Activity) {
     interstitialAd = MaxInterstitialAd(BuildConfig.INTERSTITIAL_AD_UNIT_ID, activity)
     interstitialAd?.setListener(object : MaxAdListener {
-        override fun onAdLoaded(ad: MaxAd?) {
+        override fun onAdLoaded(ad: MaxAd) {
             Log.d(TAG, "onAdLoaded: ")
             retryAttempt = 0.0
         }
 
-        override fun onAdDisplayed(ad: MaxAd?) {
+        override fun onAdDisplayed(ad: MaxAd) {
             Log.d(TAG, "onAdDisplayed: ")
         }
 
-        override fun onAdHidden(ad: MaxAd?) {
+        override fun onAdHidden(ad: MaxAd) {
             Log.d(TAG, "onAdHidden: ")
             interstitialAd?.loadAd()
         }
 
-        override fun onAdClicked(ad: MaxAd?) {
+        override fun onAdClicked(ad: MaxAd) {
             Log.d(TAG, "onAdClicked: ")
         }
 
-        override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+        override fun onAdLoadFailed(adUnitId: String, error: MaxError) {
             Log.d(TAG, "onAdLoadFailed: ")
             retryAttempt++
 
@@ -48,7 +48,7 @@ fun createInterstitialAd(activity: Activity) {
             Handler().postDelayed({ interstitialAd?.loadAd() }, delayMillis)
         }
 
-        override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+        override fun onAdDisplayFailed(ad: MaxAd, error: MaxError) {
             Log.d(TAG, "onAdDisplayFailed: ")
             interstitialAd?.loadAd()
         }

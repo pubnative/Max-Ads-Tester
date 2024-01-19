@@ -22,25 +22,25 @@ fun createRewardedAd(activity: Activity) {
     rewardedAd = MaxRewardedAd.getInstance(BuildConfig.REWARDED_AD_UNIT_ID, activity)
 
     rewardedAd?.setListener(object : MaxRewardedAdListener {
-        override fun onAdLoaded(ad: MaxAd?) {
+        override fun onAdLoaded(ad: MaxAd) {
             Log.d(TAG, "onAdLoaded: ")
         }
 
-        override fun onAdDisplayed(ad: MaxAd?) {
+        override fun onAdDisplayed(ad: MaxAd) {
             Log.d(TAG, "onAdDisplayed: ")
             retryAttempt = 0.0
         }
 
-        override fun onAdHidden(ad: MaxAd?) {
+        override fun onAdHidden(ad: MaxAd) {
             Log.d(TAG, "onAdHidden: ")
             rewardedAd?.loadAd()
         }
 
-        override fun onAdClicked(ad: MaxAd?) {
+        override fun onAdClicked(ad: MaxAd) {
             Log.d(TAG, "onAdClicked: ")
         }
 
-        override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+        override fun onAdLoadFailed(adUnitId: String, error: MaxError) {
             Log.d(TAG, "onAdLoadFailed: ")
             retryAttempt++
             val delayMillis =
@@ -50,20 +50,20 @@ fun createRewardedAd(activity: Activity) {
 
         }
 
-        override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+        override fun onAdDisplayFailed(ad: MaxAd, error: MaxError) {
             Log.d(TAG, "onAdDisplayFailed: ")
             rewardedAd?.loadAd()
         }
 
-        override fun onRewardedVideoStarted(ad: MaxAd?) {
+        override fun onRewardedVideoStarted(ad: MaxAd) {
             Log.d(TAG, "onRewardedVideoStarted: ")
         }
 
-        override fun onRewardedVideoCompleted(ad: MaxAd?) {
+        override fun onRewardedVideoCompleted(ad: MaxAd) {
             Log.d(TAG, "onRewardedVideoCompleted: ")
         }
 
-        override fun onUserRewarded(ad: MaxAd?, reward: MaxReward?) {
+        override fun onUserRewarded(ad: MaxAd, reward: MaxReward) {
             Log.d(TAG, "onUserRewarded: ")
         }
 
