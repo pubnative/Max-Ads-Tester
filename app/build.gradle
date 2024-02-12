@@ -14,7 +14,7 @@ android {
     compileSdk 34
 
     defaultConfig {
-        applicationId "de.tvsmiles.app"
+        applicationId "net.pubnative.lite.demo"
         minSdk 23
         targetSdk 34
         versionCode 1
@@ -28,12 +28,11 @@ android {
 
     buildTypes {
         debug {
-//            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"191c8b27bb24255a\""
-            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"8325b47ac20344a8\""
-//            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"650da6027eb0bf60\""
-            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"82b96c35009bb34c\""
-//            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"6ce7fc1e660c916d\""
-            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"15819e655d2464b0\""
+            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"a6eea664dbc57ba2\""
+            buildConfigField "String", "MRECT_AD_UNIT_ID", "\"b530984eac9af2db\""
+            buildConfigField "String", "NATIVE_AD_UNIT_ID", "\"9052d6e7f6f0841a\""
+            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"d9c7ea61191f825a\""
+            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"8750fa87e3aaaea9\""
         }
 
         release {
@@ -75,7 +74,7 @@ android {
         enableAggregatingTask = true
     }
 
-    namespace "de.tvsmiles.app"
+    namespace "net.pubnative.lite.demo"
 }
 
 dependencies {
@@ -127,8 +126,8 @@ dependencies {
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
 
-    implementation "net.pubnative:hybid.sdk:2.21.0-beta-rc.14639"
-    implementation "net.pubnative:hybid.omsdk:1.4.9"
+    implementation "net.pubnative:hybid.sdk:2.21.1"
+    implementation "net.pubnative:hybid.omsdk:1.4.10"
     implementation 'net.pubnative:hybid.adapters.applovin:2.18.1'
     implementation 'com.applovin.mediation:verve-adapter:2.18.1.0'
     implementation 'com.google.android.gms:play-services-base:18.3.0'
