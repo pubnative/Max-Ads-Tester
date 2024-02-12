@@ -38,12 +38,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            //            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"191c8b27bb24255a\""
-            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"8325b47ac20344a8\""
-//            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"650da6027eb0bf60\""
-            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"82b96c35009bb34c\""
-//            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"6ce7fc1e660c916d\""
-            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"15819e655d2464b0\""
+            buildConfigField "String", "BANNER_AD_UNIT_ID", "\"a6eea664dbc57ba2\""
+            buildConfigField "String", "MRECT_AD_UNIT_ID", "\"b530984eac9af2db\""
+            buildConfigField "String", "NATIVE_AD_UNIT_ID", "\"9052d6e7f6f0841a\""
+            buildConfigField "String", "INTERSTITIAL_AD_UNIT_ID", "\"d9c7ea61191f825a\""
+            buildConfigField "String", "REWARDED_AD_UNIT_ID", "\"8750fa87e3aaaea9\""
         }
     }
 
