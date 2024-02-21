@@ -121,7 +121,7 @@ dependencies {
 
 
     //AppLovin Max SDK
-    implementation 'com.applovin:applovin-sdk:12.1.0'
+    implementation 'com.applovin:applovin-sdk:12.2.0'
     implementation 'com.android.installreferrer:installreferrer:2.2'
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
 
