@@ -27,7 +27,7 @@
         android:theme="@style/MaxAdsMainTheme">
 
         <activity
-            android:name=".presentation.MainActivity"
+            android:name="com.verve.maxads.demo.presentation.MainActivity"
             android:exported="true"
             android:theme="@style/MaxAdsMainTheme">
             <intent-filter>
